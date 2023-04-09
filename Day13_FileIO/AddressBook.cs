@@ -13,7 +13,7 @@ namespace Day13_FileIO
         public string Address { get; set; }
         public string City { get; set; }
         public int Zip { get; set; }
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
         public string Email { get; set; }
     }
 }
