@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,29 @@ namespace Day13_FileIO
             }
             return addressBook;
 
+        }
+        public static void WriteDataToTextFile()
+        {
+            AddressBook addressBook = new AddressBook();
+            addressBook = AddressBookRepo.AddContact();
+            string filePath = @"E:\BridgeLabz\RFP 267\Day13_FileIO\Day13_FileIO\ContactFile.txt";
+            StreamWriter writer = new StreamWriter(filePath, true);
+            writer.WriteLine(addressBook.FirstName);
+            writer.WriteLine(addressBook.LastName);
+            writer.WriteLine(addressBook.Address);
+            writer.WriteLine(addressBook.City);
+            writer.WriteLine(addressBook.Zip);
+            writer.WriteLine(addressBook.PhoneNumber);
+            writer.WriteLine(addressBook.Email);
+            writer.WriteLine(" ");
+            writer.AutoFlush = true;
+        }
+
+        public static void ReadDataToTextFile()
+        {
+            string filePath = @"E:\BridgeLabz\RFP 267\Day13_FileIO\Day13_FileIO\ContactFile.txt";
+            StreamReader reader = new StreamReader(filePath);
+            Console.WriteLine(reader.ReadToEnd()) ;
         }
     }
 }
